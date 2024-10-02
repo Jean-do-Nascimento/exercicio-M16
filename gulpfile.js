@@ -10,7 +10,6 @@ function comprimeImagens() {
         .pipe(gulp.dest('./build/images'));
 } //export está: exports.images = comprimeImagens
 
-
 function comprimeJS () {
     return gulp.src('./src/scripts/*.js')
         .pipe(uglify())
