@@ -8,7 +8,7 @@ function comprimeImagens() {
     return gulp.src('./src/images/*')
         .pipe(imagemin())
         .pipe(gulp.dest('./build/images'));
-} //export está: exports.images = comprimeImagens
+} 
 
 function comprimeJS () {
     return gulp.src('./src/scripts/*.js')
@@ -26,10 +26,9 @@ function compilaSass () {
         .pipe(gulp.dest('./build/styles'))
 }
 
-
-exports.images = comprimeImagens
 exports.default = function () {
     gulp.watch('./src/styles/*.scss', {ignoreInitial: false }, gulp.series(compilaSass));
     gulp.watch('./src/scripts/*.js', {ignoreInitial: false }, gulp.series(comprimeJS));
+    gulp.watch('./src/images/*', {ignoreInitial: false }, gulp.series(comprimeImagens));
 };
 
